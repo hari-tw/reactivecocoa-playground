@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITextFieldDelegate>
 
+@property (nonatomic, weak) IBOutlet UITextField *nameField;
+@property (nonatomic, weak) IBOutlet UITextField *emailField;
+@property (nonatomic, weak) IBOutlet UITextField *confirmEmailField;
+@property (nonatomic, weak) IBOutlet UITextField *passwordField;
+@property (nonatomic, weak) IBOutlet UIButton *signUpButton;
+
+
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+
+-(IBAction) signUp;
 @end
