@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property(nonatomic,retain) SignUpViewModel *viewModel;
 
 @end
 
@@ -21,12 +22,25 @@
     
     self.signUpButton.enabled = false;
     
-    [self.nameField addTarget:self action:@selector(inputReceived:) forControlEvents:UIControlEventEditingChanged];
-    [self.emailField addTarget:self action:@selector(inputReceived:) forControlEvents:UIControlEventEditingChanged];
-    [self.confirmEmailField addTarget:self action:@selector(inputReceived:) forControlEvents:UIControlEventEditingChanged];
-    [self.passwordField addTarget:self action:@selector(inputReceived:) forControlEvents:UIControlEventEditingChanged];
+    _viewModel = [SignUpViewModel new];
     
-    [self.signUpButton addTarget:self action:@selector(signUp) forControlEvents:UIControlEventTouchUpInside];
+    [self.nameField.rac_textSignal subscribe:RACBind(self.viewModel.userName)];
+    
+    [RACAble(self.viewModel.userName) subscribeNext:^(NSString *newName) {
+        NSLog(@"User Name : %@", newName);
+    }];
+    
+    [self.emailField.rac_textSignal subscribe:RACBind(self.viewModel.emailId)];
+    
+    [RACAble(self.viewModel.emailId) subscribeNext:^(NSString *newEmail) {
+        NSLog(@"User Email Id : %@", newEmail);
+    }];
+    
+    [self.passwordField.rac_textSignal subscribe:RACBind(self.viewModel.password)];
+    
+    [RACAble(self.viewModel.password) subscribeNext:^(NSString *newPassword) {
+        NSLog(@"User Password : %@", newPassword);
+    }];
     
 }
 
@@ -45,11 +59,6 @@
 - (IBAction)signUp
 {
      NSLog(@"call the signup api");
-}
-
-- (void) inputReceived:(UITextField *) textField {
-    self.signUpButton.enabled = [self isValidInput];
-    NSLog(@"%@=%@", textField.placeholder, textField.text);
 }
 
 - (BOOL)isValidInput {

@@ -23,6 +23,7 @@
 		5799318417873FEE00059BB3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5799315F17873FEE00059BB3 /* Foundation.framework */; };
 		5799318C17873FEE00059BB3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5799318A17873FEE00059BB3 /* InfoPlist.strings */; };
 		5799318F17873FEE00059BB3 /* ReactiveCocoaDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5799318E17873FEE00059BB3 /* ReactiveCocoaDemoTests.m */; };
+		57AC5A7D1787AE9A003C840D /* SignUpViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AC5A7C1787AE9A003C840D /* SignUpViewModel.m */; };
 		E2AE1615E45C4A298D7386D4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D16E5BEDC4AF4A6E84A08F13 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		5799318B17873FEE00059BB3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5799318D17873FEE00059BB3 /* ReactiveCocoaDemoTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveCocoaDemoTests.h; sourceTree = "<group>"; };
 		5799318E17873FEE00059BB3 /* ReactiveCocoaDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactiveCocoaDemoTests.m; sourceTree = "<group>"; };
+		57AC5A7B1787AE9A003C840D /* SignUpViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewModel.h; sourceTree = "<group>"; };
+		57AC5A7C1787AE9A003C840D /* SignUpViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewModel.m; sourceTree = "<group>"; };
 		D16E5BEDC4AF4A6E84A08F13 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,6 +126,7 @@
 		5799316317873FEE00059BB3 /* ReactiveCocoaDemo */ = {
 			isa = PBXGroup;
 			children = (
+				57AC5A7A1787AE68003C840D /* ViewModel */,
 				5799316C17873FEE00059BB3 /* AppDelegate.h */,
 				5799316D17873FEE00059BB3 /* AppDelegate.m */,
 				5799317517873FEE00059BB3 /* ViewController.h */,
@@ -164,6 +168,15 @@
 				5799318A17873FEE00059BB3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		57AC5A7A1787AE68003C840D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				57AC5A7B1787AE9A003C840D /* SignUpViewModel.h */,
+				57AC5A7C1787AE9A003C840D /* SignUpViewModel.m */,
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,8 +239,6 @@
 			mainGroup = 5799315117873FEE00059BB3;
 			productRefGroup = 5799315B17873FEE00059BB3 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				5799315917873FEE00059BB3 /* ReactiveCocoaDemo */,
@@ -312,6 +323,7 @@
 			files = (
 				5799316A17873FEE00059BB3 /* main.m in Sources */,
 				5799316E17873FEE00059BB3 /* AppDelegate.m in Sources */,
+				57AC5A7D1787AE9A003C840D /* SignUpViewModel.m in Sources */,
 				5799317717873FEE00059BB3 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,6 +507,7 @@
 				5799319417873FEE00059BB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5799319517873FEE00059BB3 /* Build configuration list for PBXNativeTarget "ReactiveCocoaDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +516,7 @@
 				5799319717873FEE00059BB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
