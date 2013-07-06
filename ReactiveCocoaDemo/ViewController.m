@@ -26,9 +26,9 @@
     
     [self.nameField.rac_textSignal subscribe:RACBind(self.viewModel.userName)];
     
-    [RACAble(self.viewModel.userName) subscribeNext:^(NSString *newName) {
-        NSLog(@"User Name : %@", newName);
-    }];
+//    [RACAble(self.viewModel.userName) subscribeNext:^(NSString *newName) {
+//        NSLog(@"User Name : %@", newName);
+//    }];
     
     
     [[RACAble(self.viewModel.userName)
