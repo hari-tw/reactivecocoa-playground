@@ -30,17 +30,16 @@
         NSLog(@"User Name : %@", newName);
     }];
     
-    [self.emailField.rac_textSignal subscribe:RACBind(self.viewModel.emailId)];
     
-    [RACAble(self.viewModel.emailId) subscribeNext:^(NSString *newEmail) {
-        NSLog(@"User Email Id : %@", newEmail);
-    }];
+    [[RACAble(self.viewModel.userName)
+      filter:^BOOL (NSString *newName) {
+          return [newName isEqualToString:@"admin"];
+      }]
+     subscribeNext:^(NSString *newName) {
+         NSLog(@"%@ canot not be a user name", newName);
+     }];
     
-    [self.passwordField.rac_textSignal subscribe:RACBind(self.viewModel.password)];
     
-    [RACAble(self.viewModel.password) subscribeNext:^(NSString *newPassword) {
-        NSLog(@"User Password : %@", newPassword);
-    }];
     
 }
 
