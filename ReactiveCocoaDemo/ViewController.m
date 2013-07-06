@@ -26,6 +26,8 @@
     [self.confirmEmailField addTarget:self action:@selector(inputReceived:) forControlEvents:UIControlEventEditingChanged];
     [self.passwordField addTarget:self action:@selector(inputReceived:) forControlEvents:UIControlEventEditingChanged];
     
+    [self.signUpButton addTarget:self action:@selector(signUp) forControlEvents:UIControlEventTouchUpInside];
+    
 }
 
 - (void)didReceiveMemoryWarning
