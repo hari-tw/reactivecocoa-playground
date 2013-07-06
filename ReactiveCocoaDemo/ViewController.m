@@ -33,6 +33,11 @@
                                                        ] reduce:^(NSString *username, NSString *password, NSString *emailId) {
                                                           return @(username.length > 0 && password.length > 0 && emailId.length > 0);
                                                       }];
+    
+    [[self.signUpButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *sender){
+        NSLog(@"call the signup api");
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning
