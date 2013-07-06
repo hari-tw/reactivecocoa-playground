@@ -25,22 +25,14 @@
     _viewModel = [SignUpViewModel new];
     
     [self.nameField.rac_textSignal subscribe:RACBind(self.viewModel.userName)];
+    [self.emailField.rac_textSignal subscribe:RACBind(self.viewModel.emailId)];
+    [self.passwordField.rac_textSignal subscribe:RACBind(self.viewModel.password)];
     
-//    [RACAble(self.viewModel.userName) subscribeNext:^(NSString *newName) {
-//        NSLog(@"User Name : %@", newName);
-//    }];
-    
-    
-    [[RACAble(self.viewModel.userName)
-      filter:^BOOL (NSString *newName) {
-          return [newName isEqualToString:@"admin"];
-      }]
-     subscribeNext:^(NSString *newName) {
-         NSLog(@"%@ canot not be a user name", newName);
-     }];
-    
-    
-    
+    RAC(self.signUpButton, enabled) = [RACSignal
+                                      combineLatest:@[RACAble(self.viewModel.userName),RACAble(self.viewModel.password),RACAble(self.viewModel.emailId)
+                                                       ] reduce:^(NSString *username, NSString *password, NSString *emailId) {
+                                                          return @(username.length > 0 && password.length > 0 && emailId.length > 0);
+                                                      }];
 }
 
 - (void)didReceiveMemoryWarning
